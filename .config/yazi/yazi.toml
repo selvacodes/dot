@@ -1,0 +1,41 @@
+[manager]
+show_hidden = true
+
+[opener]
+edit = [
+	{ run = '${EDITOR:=nvim} "$@"', desc = "Nvim", block = true },
+	{ run = 'code "$@"', orphan = true },
+]
+play = [
+	{ run = 'mpv "$@"' },
+]
+archive = [
+	{ run = 'unar "$1"', desc = "Extract here" },
+]
+pdf = [
+	{ run = 'zathura "$1"', desc = "PDF with zathura" },
+]
+
+[open]
+rules = [
+	{ name = "*/", use = [ "open", "edit", "reveal" ] },
+
+	{ mime = "text/*",  use = [ "edit", "reveal" ] },
+	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "video/*", use = [ "play", "reveal" ] },
+	{ mime = "audio/*", use = [ "play", "reveal" ] },
+	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+	{ mime = "application/json", use = [ "edit", "reveal" ] },
+	{ mime = "*/pdf",     use = [ "pdf", "open" ] },
+
+	{ mime = "application/zip",             use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/gzip",            use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/x-tar",           use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/x-bzip",          use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/x-bzip2",         use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/x-rar",           use = [ "extract", "reveal", "archive" ] },
+
+	{ mime = "*", use = [ "open", "reveal" ] },
+]

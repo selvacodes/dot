@@ -1,0 +1,1 @@
+[{"id": "2024040310235792804228", "name": "Default", "is_active": true, "bookmarks": [{"id": 1712120037, "name": "test", "created_at": 1712120037, "location": {"col": 1, "path": "/home/selva/repos/acs/solid-octo-potato/app/event/event.operations.ts", "line": 8}, "githash": "0a7b273", "listname": "Default", "visited_at": 1712120366, "content": "  domainid: z.string(),"}]}]
